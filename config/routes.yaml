@@ -1,0 +1,16 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+    
+addData:
+    path: /addData
+    controller: App\Controller\DefaultController::addData
+    
+saveNewData:
+    path: /saveNewData
+    controller: App\Controller\DefaultController::saveNewData   
+    
+deleteData:
+    path: /deleteData/{id}
+    controller: App\Controller\DefaultController::deleteData   
+    methods:    GET|HEAD
