@@ -1,4 +1,4 @@
-## Account test
+## Test
 
 This test is developed in symfony framework.
 
