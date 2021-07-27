@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    {% include 'header.html.twig' %}
+    <body>
+        <div style="border: #000 solid; text-align: center; width: 100%"><h1>Test System</h1></div>
+        {% block body %}{% endblock %}
+      
+        
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+     {% include 'footer.html.twig' %}   
+    </body>
+
+</html>

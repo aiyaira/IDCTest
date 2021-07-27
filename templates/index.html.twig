@@ -1,0 +1,47 @@
+{% include '/base.html.twig' %}  
+{% block body %}
+    <div style="text-align: center;"><h3>Welcome to IDC test System</h3></div>
+    <div style="text-align: center;"><a type="button" class="btn btn-primary" href="/addData">Add New account </a>
+    </div>
+    {% if details.result  %}
+        <table  class="table">
+            <tr>
+                <th></th>
+                <th>Reference</th>    
+                <th>Task</th>
+                <th>Amount</th>
+                <th>Percentage</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            {% set amountsum = 0 %}
+            {% set totalsum = 0 %}
+            {% for key,item in details.result %}
+                {#               <tr v-for="({{ item }}, {{ key }}) in items" v-bind:index="index">
+                                   <td v-text="{{ item.reference }}"></td>
+                                   <td v-text="{{ item.task }}"></td>
+                                   <td v-text="{{ item.amount }}"></td>
+                                   <td v-text="{{ item.percentage }}"></td>
+                                    <td v-text="{{ item.totalCost }}"></td>
+                                   <td><button @click="fireDelete(item.id, index)">Delete</button></td>
+                               </tr>
+               #}
+                {% set amountsum = amountsum + item.amount  %}
+                {% set totalsum = totalsum + item.totalCost  %}
+                <tr id="{{ item.reference }}"><td>{{ key + 1 }}</td>
+                    <td>  {{ item.reference }} </td>
+                    <td>{{ item.task }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.percentage }}</td>
+                    <td>{{ item.totalCost }}</td>
+                    <td><a type="button" class="btn btn-primary" href="/deleteData/{{ item.reference }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+
+        {% if totalsum !=0 %}
+            <tr><td colspan="3"><b>Total</b></td><td><b>{{ amountsum }}</b></td><td></td><td><b>{{ totalsum }}</b></td>
+            </tr> 
+        {% endif %}
+                </table>
+    {% endif %}  
+{% endblock %}    
